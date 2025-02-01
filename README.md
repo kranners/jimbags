@@ -2,10 +2,14 @@
 
 ags for jimbo
 
-## Getting Started
+## Local Setup
 
-· run `nix develop` to enter the development environment 
+1. Install [Nix](https://nix.dev/install-nix)
 
-· run `ags init -d . -f` to setup an initial ags project 
+Either:
+2. Run `nix develop` to enter the development environment  
 
-· run `ags run .` to run the project 
+Or:
+2. Install [nix-direnv](https://github.com/nix-community/nix-direnv)
+3. `direnv allow` to always enter the development environment
+

@@ -5,7 +5,9 @@ import Bar from "./widget/Bar"
 
 App.start({
   css: style,
-  main() {
-    App.get_monitors().map(Bar)
+  main: () => {
+    App.get_monitors().map((monitor) => {
+      Bar(monitor);
+    })
   },
 })
