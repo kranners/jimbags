@@ -1,5 +1,5 @@
 {
-  description = "My Awesome Desktop Shell";
+  description = "jimbags 🛍️";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
@@ -22,7 +22,7 @@
       default = ags.lib.bundle {
         inherit pkgs;
         src = ./.;
-        name = "my-shell";
+        name = "jimbags";
         entry = "app.ts";
 
         # additional libraries and executables to add to gjs' runtime
