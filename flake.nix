@@ -17,6 +17,15 @@
   }: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
+
+    agsPackages = with ags.packages.${system}; [
+      hyprland
+      mpris
+      network
+      tray
+      wireplumber
+    ];
+
   in {
     packages.${system} = {
       default = ags.lib.bundle {
@@ -26,13 +35,7 @@
         entry = "app.ts";
 
         # additional libraries and executables to add to gjs' runtime
-        extraPackages = with ags.packages.${system}; [
-          hyprland
-          mpris
-          network
-          tray
-          wireplumber
-        ];
+        extraPackages = agsPackages;
       };
     };
 
@@ -41,15 +44,9 @@
         buildInputs = [
           # includes astal3 astal4 astal-io by default
           (ags.packages.${system}.default.override {
-            extraPackages = with ags.packages.${system}; [
-              # cherry pick packages
-              hyprland
-              mpris
-              network
-              tray
-              wireplumber
-            ];
+            extraPackages = agsPackages;
           })
+          pkgs.nodejs_22
         ];
       };
     };
